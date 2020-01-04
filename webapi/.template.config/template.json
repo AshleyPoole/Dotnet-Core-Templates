@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Ashley Poole",
+    "classifications": [
+        "Web",
+        "WebAPI"
+      ],
+    "name": "Ashley Poole WebApi",
+    "description": "A project template for a WebApi with an example health controller",
+    "identity": "AshleyPoole.WebApi.CSharp",
+    "groupIdentity":"AshleyPoole.WebApi",
+    "shortName": "ashleypoole.webapi",
+    "tags": {
+      "language": "C#",
+      "type":"project"
+    },
+    "sourceName": "MyApp",
+    "preferNameDirectory": true,
+    "guids": [
+        "87bc9b7d-8d6a-49d4-8519-2a8620973502", // MyApp Solution Project ID
+        "09739733-2cef-46b7-83db-3087bcb079d3", // MyApp ID
+        "01982762-6c9a-12e8-65ab-9702abe089a2" // MyApp.Tests ID
+      ],
+      "sources": [
+        {
+          "modifiers": [
+            {
+              "condition": "(ExcludeLaunchSettings)",
+              "exclude": [
+                "Properties/launchSettings.json"
+              ]
+            }
+          ]
+        }
+      ],
+      "symbols": {
+        "ExcludeLaunchSettings": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "false",
+            "description": "Whether to exclude launchSettings.json in the generated template."
+        },
+        "skipRestore": {
+          "type": "parameter",
+          "datatype": "bool",
+          "description": "If specified, skips the automatic restore of the project on create.",
+          "defaultValue": "false"
+        }
+    },
+    "defaultName": "WebApplication",
+    "postActions": [
+        {
+          "condition": "(!skipRestore)",
+          "description": "Restore NuGet packages required by this project.",
+          "manualInstructions": [
+            {
+              "text": "Run 'dotnet restore'"
+            }
+          ],
+          "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+          "continueOnError": true
+        }
+      ]
+  }
